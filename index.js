@@ -19,10 +19,6 @@ client.on(Discord.Constants.Events.MESSAGE_CREATE, msg => {
             o.msg_create(msg);
         }
     });
-
-    if (msg.cleanContent === 'ping') {
-        msg.reply('pong');
-    }
 });
 
 client.on(Discord.Constants.Events.MESSAGE_UPDATE, (oldMsg, msg) => {
