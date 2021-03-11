@@ -18,9 +18,15 @@ client.on(Discord.Constants.Events.MESSAGE_CREATE, (msg) => {
         return;
     }
     objs.forEach((o) => {
-        if (typeof o.msgCreate === 'function') {
-            o.msgCreate(msg);
+        if (typeof o.msgCreate !== 'function') {
+            return;
         }
+        if (typeof o.command === 'string') {
+            if (!msg.cleanContent.startsWith(`%${o.command}`)) {
+                return;
+            }
+        }
+        o.msgCreate(msg);
     });
 });
 
@@ -29,9 +35,10 @@ client.on(Discord.Constants.Events.MESSAGE_UPDATE, (oldMsg, msg) => {
         return;
     }
     objs.forEach((o) => {
-        if (typeof o.msgUpdate === 'function') {
-            o.msgUpdate(oldMsg, msg);
+        if (typeof o.msgUpdate !== 'function') {
+            return;
         }
+        o.msgUpdate(oldMsg, msg);
     });
 });
 
@@ -40,9 +47,10 @@ client.on(Discord.Constants.Events.MESSAGE_DELETE, (msg) => {
         return;
     }
     objs.forEach((o) => {
-        if (typeof o.msgDelete === 'function') {
-            o.msgDelete(msg);
+        if (typeof o.msgDelete !== 'function') {
+            return;
         }
+        o.msgDelete(msg);
     });
 });
 

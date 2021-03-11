@@ -8,10 +8,12 @@
  */
 
 class Ping {
+    constructor() {
+        this.command = 'ping';
+    }
+
     msgCreate(msg) {
-        if (msg.cleanContent === 'ping') {
-            msg.reply('pong');
-        }
+        msg.reply('pong');
     }
 }
 
