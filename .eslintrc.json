@@ -1,5 +1,6 @@
 {
-    "extends": "airbnb-base",
+    "extends": ["airbnb-base", "plugin:jest/all"],
+    "plugins": ["jest"],
     "rules": {
         "indent": [ "error", 4 ],
         "no-console": "off"
