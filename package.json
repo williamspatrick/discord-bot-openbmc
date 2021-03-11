@@ -4,8 +4,9 @@
   "description": "Discord Bot for OpenBMC community",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint --fix *.js src/**/*.js",
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "eslint *.js src/**/*.js"
   },
   "author": "",
   "license": "MIT",
@@ -13,5 +14,11 @@
     "auto-load": "^3.0.4",
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.21.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1"
   }
 }

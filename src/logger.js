@@ -1,23 +1,34 @@
+/* eslint class-methods-use-this: [
+    "error",
+    { "exceptMethods": [
+        "msgCreate",
+        "msgUpdate",
+        "msgDelete",
+      ]
+    }
+]
+ */
+
 class Logger {
-    constructor() {
+    msgCreate(msg) {
+        console.log(
+            `Msg on ${msg.channel.name} from ${msg.author.username}: `
+            + `${msg.cleanContent}`,
+        );
     }
 
-    msg_create(msg) {
+    msgUpdate(oldMsg, msg) {
         console.log(
-            `Msg on ${msg.channel.name} from ${msg.author.username}: ` +
-            `${msg.cleanContent}`);
+            `Msg on ${msg.channel.name} from ${msg.author.username} `
+            + `edited: ${oldMsg.cleanContent} -> ${msg.cleanContent}`,
+        );
     }
 
-    msg_update(oldMsg, msg) {
+    msgDelete(msg) {
         console.log(
-            `Msg on ${msg.channel.name} from ${msg.author.username} ` +
-            `edited: ${oldMsg.cleanContent} -> ${msg.cleanContent}`);
-    }
-
-    msg_delete(msg) {
-        console.log(
-            `Msg on ${msg.channel.name} from ${msg.author.username} ` +
-            `deleted: ${msg.cleanContent}`);
+            `Msg on ${msg.channel.name} from ${msg.author.username} `
+            + `deleted: ${msg.cleanContent}`,
+        );
     }
 }
 

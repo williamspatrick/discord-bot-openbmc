@@ -1,22 +1,25 @@
 require('dotenv').config();
+const path = require('path');
 
-var Discord = require('discord.js');
-var client = new Discord.Client();
+const Discord = require('discord.js');
 
-var modules = require('auto-load')(__dirname + '/src');
-var objs = Object.entries(modules).map(([key, value]) => new value());
+const client = new Discord.Client();
+
+const modules = require('auto-load')(path.join(__dirname, 'src'));
+
+const objs = Object.values(modules).map((Value) => new Value());
 
 client.on(Discord.Constants.Events.CLIENT_READY, () => {
     console.log(`Logged in as ${client.user.tag}!`);
 });
 
-client.on(Discord.Constants.Events.MESSAGE_CREATE, msg => {
+client.on(Discord.Constants.Events.MESSAGE_CREATE, (msg) => {
     if ((msg.channel.type !== 'text') || (!msg.cleanContent)) {
         return;
     }
-    objs.forEach(o => {
-        if (typeof o.msg_create == 'function') {
-            o.msg_create(msg);
+    objs.forEach((o) => {
+        if (typeof o.msgCreate === 'function') {
+            o.msgCreate(msg);
         }
     });
 });
@@ -25,20 +28,20 @@ client.on(Discord.Constants.Events.MESSAGE_UPDATE, (oldMsg, msg) => {
     if ((msg.channel.type !== 'text') || (!msg.cleanContent)) {
         return;
     }
-    objs.forEach(o => {
-        if (typeof o.msg_update == 'function') {
-            o.msg_update(oldMsg, msg);
+    objs.forEach((o) => {
+        if (typeof o.msgUpdate === 'function') {
+            o.msgUpdate(oldMsg, msg);
         }
     });
 });
 
-client.on(Discord.Constants.Events.MESSAGE_DELETE, msg => {
+client.on(Discord.Constants.Events.MESSAGE_DELETE, (msg) => {
     if ((msg.channel.type !== 'text') || (!msg.cleanContent)) {
         return;
     }
-    objs.forEach(o => {
-        if (typeof o.msg_delete == 'function') {
-            o.msg_delete(msg);
+    objs.forEach((o) => {
+        if (typeof o.msgDelete === 'function') {
+            o.msgDelete(msg);
         }
     });
 });

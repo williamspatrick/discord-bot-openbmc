@@ -1,10 +1,16 @@
-class Ping {
-    constructor() {
+/* eslint class-methods-use-this: [
+    "error",
+    { "exceptMethods": [
+        "msgCreate"
+      ]
     }
+]
+ */
 
-    msg_create(msg) {
+class Ping {
+    msgCreate(msg) {
         if (msg.cleanContent === 'ping') {
-            msg.reply('pong')
+            msg.reply('pong');
         }
     }
 }
