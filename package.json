@@ -1,5 +1,9 @@
 {
-  "name": "discord-openbmc",
+  "name": "discord-bot-openbmc",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/williamspatrick/discord-bot-openbmc"
+  },
   "version": "0.0.0",
   "description": "Discord Bot for OpenBMC community",
   "main": "index.js",
