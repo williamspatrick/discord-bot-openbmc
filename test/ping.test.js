@@ -1,3 +1,4 @@
+const { Message } = require('discord.js');
 const Ping = require('../src/ping');
 
 const ping = new Ping();
@@ -15,11 +16,12 @@ describe('ping-tests', () => {
     });
 
     it('msgCreate replies with "pong"', () => {
-        expect.assertions(1);
-        ping.msgCreate({
-            reply: (text) => {
-                expect(text).toBe('pong');
-            },
-        });
+        expect.assertions(2);
+
+        const msg = new Message();
+        ping.msgCreate(msg);
+
+        expect(msg.reply.mock.calls).toHaveLength(1);
+        expect(msg.reply).toHaveBeenCalledWith('pong');
     });
 });
