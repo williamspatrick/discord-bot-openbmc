@@ -10,6 +10,9 @@
 class Ping {
     constructor() {
         this.command = 'ping';
+        this.help = [
+            { command: 'ping', short: 'Responds with a "pong"' },
+        ];
     }
 
     msgCreate(msg) {

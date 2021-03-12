@@ -3,6 +3,7 @@
     "plugins": ["jest"],
     "rules": {
         "indent": [ "error", 4 ],
-        "no-console": "off"
+        "no-console": "off",
+        "jest/no-hooks": "off"
     }
 }

@@ -8,6 +8,7 @@ const client = new Discord.Client();
 const modules = require('auto-load')(path.join(__dirname, 'src'));
 
 const objs = Object.values(modules).map((Value) => new Value(client));
+client.openbmc_objects = objs;
 
 client.on(Discord.Constants.Events.CLIENT_READY, () => {
     console.log(`Logged in as ${client.user.tag}!`);
