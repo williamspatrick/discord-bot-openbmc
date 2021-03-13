@@ -3,7 +3,7 @@ const path = require('path');
 
 const Discord = require('discord.js');
 
-const client = new Discord.Client();
+const client = new Discord.Client({ intents: Discord.Intents.NON_PRIVILEGED });
 
 const modules = require('auto-load')(path.join(__dirname, 'src'));
 
