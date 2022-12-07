@@ -1,9 +1,28 @@
 {
-    "extends": ["airbnb-base", "plugin:jest/all"],
-    "plugins": ["jest"],
+    "extends": [
+        "airbnb-base"
+    ],
+    "overrides": [
+        {
+            "files": [
+                "test/**"
+            ],
+            "plugins": [
+                "jest"
+            ],
+            "extends": [
+                "plugin:jest/all"
+            ],
+            "rules": {
+                "jest/no-hooks": "off"
+            }
+        }
+    ],
     "rules": {
-        "indent": [ "error", 4 ],
-        "no-console": "off",
-        "jest/no-hooks": "off"
+        "indent": [
+            "error",
+            4
+        ],
+        "no-console": "off"
     }
 }
