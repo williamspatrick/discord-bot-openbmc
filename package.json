@@ -17,14 +17,14 @@
   "dependencies": {
     "auto-load": "^3.0.4",
     "discord.js": "git://github.com/discordjs/discord.js.git#d744e51c1bdb4c7a26c0faeea1f2f45baaf5fd3c",
-    "dotenv": "^8.2.0"
+    "dotenv": "^16.0.3"
   },
   "devDependencies": {
-    "eslint": "^7.22.0",
-    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint": "^8.29.0",
+    "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jest": "^24.3.1",
+    "eslint-plugin-jest": "^27.1.6",
     "eslint-plugin-jsx-a11y": "^6.4.1",
-    "jest": "^26.6.3"
+    "jest": "^29.3.1"
   }
 }
